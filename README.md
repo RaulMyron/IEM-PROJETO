@@ -7,3 +7,8 @@ Colaboradores
 - Eduardo Pereira Neiva
 - Wallace Ben Teng Lin Wu
 - Pedro Dantas Freitas
+
+- Álcool (Raul)
+- Fila (Lucas)
+- Entrada e Saida (Wallace)
+- Corredores (Vinicius)
