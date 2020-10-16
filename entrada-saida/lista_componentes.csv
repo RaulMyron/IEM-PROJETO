@@ -1,0 +1,12 @@
+Nome,Quantidade,Componente
+"U Arduino",1," Arduino Uno R3"
+"U LCD",1," LCD 16 x 2 "
+"Rpot5",1,"250 kΩ,  Potenciômetro"
+"R10",1,"220 Ω Resistor"
+"S2",1," Botão"
+"R5, R6, R7, R1",4,"1 kΩ Resistor"
+"R LDR 1, R LDR 2",2," Fotorresistor"
+"DLED, DLaser 2, DLaser 1",3,"Vermelho LED"
+"BATLaser 1, BATLaser 2",2," Bateria 3V do tipo moeda"
+"S4, S5",2," Interruptor deslizante"
+"R Laser 2, R Laser 1",2,"250 Ω Resistor"
