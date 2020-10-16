@@ -1,15 +1,15 @@
 /*
-* Project: People Counter
+* Projeto: Contador de Pessoas
 * 
-* The objective of this project is to avoid agglomerations in places 
-* like Supermarkets and Stores to fight the spread of the Covid-19
+* Este projeto tem como objetivo evitar aglomerações em ambientes como 
+* supermercados e lojas para ajudar na luta contra o Covid-19
 */
 
-// Standard LCD
+// LCD Padrão
 //#include <LiquidCrystal.h>
 //LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 
-// I2C LCD
+// LCD I2C 
 #include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
@@ -20,12 +20,12 @@ unsigned long ledTime = 0;
 
 int ldrPin = A0; 
 int ldrPin2 = A1;
-int ldrValue = 0; // luminosity read by the LDR
-int ldrValue2 = 0; // luminosity read by the LDR2
-int trigger = 350; // Threshold of maximum expected luminosity for when the laser is not hitting the sensor
+int ldrValue = 0; // luminosidade lida pelo LDR
+int ldrValue2 = 0; // luminosidade lida pelo LDR2
+int trigger = 350; // valor de luminosidade que máximo para detectar que o laser foi interceptado
 
-// the next step is to automate the trigger value
-// according to the ambient luminosity
+// o próximo passo é automatizar o valor "trigger"
+// de acordo com a luz ambiente
 
 int people = 0;
 int maxPeople = 5;
@@ -33,20 +33,20 @@ bool hasPersonChanged = false;
 bool hasReachedMax = false;
 bool hadReachedMax = false;
 
-String order = ""; // The order in which the lasers are being intercepted
-String lastChar = ""; // last char of "order" for comparing purposes
+String order = ""; // A ordem em que os lasers foram interceptados
+String lastChar = ""; // o último charactere de "order" para comparação
 
-void printLcd(); // Standard message print on Display
-void reachedMax(); // Message print for when the max capacity is reached
+void printLcd(); // Mensagem padrão impressa no Display
+void reachedMax(); // Mensagem impressa quando a capacidade máxima de pessoas for atingida
 void blinkLed();
 void readSensors();
-void calibrate(); // not implemented
+void calibrate(); // falta implementar
 
 void setup() {
-  // Standard LCD
+  // LCD Padrão
   //lcd.begin(16, 2);
 
-  // I2C LCD
+  // LCD I2C
   lcd.init();
   lcd.backlight();
   
@@ -56,11 +56,11 @@ void setup() {
 }
 
 void loop() {
-  // Read the LDRs
+  // Lê os sensores
   readSensors();
   delay(50);
 
-  // Someone enters
+  // Entrada
   if(order.equals("1-2")){
     people++;
     order = "";
@@ -68,7 +68,7 @@ void loop() {
     hasPersonChanged = true;
   }
   
-  // Someone gets out
+  // Saída
   else if(order.equals("2-1") && people > 0){
     people--;
     order = "";
@@ -87,9 +87,9 @@ void loop() {
     }
     hasPersonChanged = false; 
     
-    // if you want the display to show the number of people inside
-    // even after reaching the max capacity, comment the "printLcd()"
-    // above and uncomment the one below
+    // caso queira que o display mostre o número de pessoas dentro
+    // mesmo após atingir a capacidade máxima, comente o "printLCD()"
+    // acima e tire o comentário do "printLCD()" abaixo
     
     //printLcd()
   }
@@ -156,14 +156,14 @@ void readSensors(){
   }
 
   
-  // If there are some accidental inteceptation
+  // Caso ocorra uma interceptação acidental
   else if(order.length() == 2 && order.charAt(1) != '-'){
     order.remove(0, 1);
   }
 
-  // If "order" has 3 characters and it's not an entry nor 
-  // an exit, erase "order" and "lastChar" and don't change 
-  // the current number of people 
+  // Caso "order" tenha 3 caracteres e não configura uma entrada nem
+  // uma saída, apaga "order" e "lastChar" e não muda o número de
+  // pessoas presentes no momento
   else if(order.length() >= 3){
     if(order != "1-2" || order != "2-1"){
       order = "";
