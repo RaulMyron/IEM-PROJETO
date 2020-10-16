@@ -11,6 +11,6 @@ Colaboradores
 # A FAZER
 
 1. Álcool (Raul) -> PRONTO
-2. Fila (Lucas) -> AINDA NÃO PRONTO
+2. Fila (Lucas) -> MAIS OU MENOS PRONTO
 3. Entrada e Saida (Wallace) -> AINDA NÃO PRONTO
 4. Corredores (Vinicius) -> PRONTO
