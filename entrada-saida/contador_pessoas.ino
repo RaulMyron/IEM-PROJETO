@@ -6,12 +6,12 @@
 */
 
 // LCD Padrão
-//#include <LiquidCrystal.h>
-//LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+#include <LiquidCrystal.h>
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 
 // LCD I2C 
-#include <LiquidCrystal_I2C.h>
-LiquidCrystal_I2C lcd(0x27, 16, 2);
+//#include <LiquidCrystal_I2C.h>
+//LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 int ledPin = 7;
 int ledState = 0;
@@ -44,11 +44,11 @@ void calibrate(); // falta implementar
 
 void setup() {
   // LCD Padrão
-  //lcd.begin(16, 2);
+  lcd.begin(16, 2);
 
   // LCD I2C
-  lcd.init();
-  lcd.backlight();
+  //lcd.init();
+  //lcd.backlight();
   
   pinMode(ledPin,OUTPUT); 
   Serial.begin(9600);
