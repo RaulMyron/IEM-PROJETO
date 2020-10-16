@@ -1,0 +1,10 @@
+Nome,Quantidade,Componente
+"R1",1,"220 Ω Resistor"
+"U6",1," Arduino Uno R3"
+"Rpot1",1,"250 kΩ,  Potenciômetro"
+"M1",1," Motor CC"
+"P1",1,"3 , 5  Fonte de energia"
+"D1",1," Diodo"
+"T1",1," Transistor nMOS (MOSFET)"
+"U2",1," LCD 16 x 2 "
+"PING3",1," Sensor de distância ultrassônico"
