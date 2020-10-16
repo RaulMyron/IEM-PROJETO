@@ -1,0 +1,8 @@
+Nome,Quantidade,Componente
+"U1",1," Arduino Uno R3"
+"D1",1," LED RGB"
+"U2",1," LCD 16 x 2 "
+"R1, R2, R3",3,"220 Ω Resistor"
+"DIST2, DIST3",2," Sensor de distância ultrassônico"
+"Rpot1",1,"250 kΩ,  Potenciômetro"
+"R6",1,"220 Ω Resistor"
