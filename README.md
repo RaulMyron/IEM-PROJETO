@@ -8,7 +8,9 @@ Colaboradores
 - Wallace Ben Teng Lin Wu
 - Pedro Dantas Freitas
 
-- Álcool (Raul)
-- Fila (Lucas)
-- Entrada e Saida (Wallace)
-- Corredores (Vinicius)
+# A FAZER
+
+1. Álcool (Raul) -> PRONTO
+2. Fila (Lucas) -> AINDA NÃO PRONTO
+3. Entrada e Saida (Wallace) -> AINDA NÃO PRONTO
+4. Corredores (Vinicius) -> PRONTO
