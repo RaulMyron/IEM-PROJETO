@@ -40,9 +40,7 @@ void setup()
 
 void loop()
 {
-  lcd.print("lol");
   delay(1000);
-  lcd.clear();
   lcd.clear();
   delay(500);
   cm = distancia(); //distancia em cm
@@ -57,7 +55,9 @@ void loop()
       analogWrite(pinoB, 0);
       lcd.clear();
       lcd.setCursor(0,0);
-      lcd.print("1");
+      lcd.print("AFASTE-SE");
+      lcd.setCursor(0,1);
+      lcd.print("POR FAVOR");
       delay(500);
       
     }
@@ -66,7 +66,9 @@ void loop()
       analogWrite(pinoG, 255);
       analogWrite(pinoB, 0);
       lcd.clear();
-      lcd.print("2");
+      lcd.print("AFASTE-SE");
+      lcd.setCursor(0,1);
+      lcd.print("POR FAVOR");
       delay(500);
     }
     else if (cm>300){ //azul caso longe
@@ -74,8 +76,6 @@ void loop()
       analogWrite(pinoG, 0);
       analogWrite(pinoB, 255);
       lcd.clear();
-      lcd.setCursor(0,0);
-      lcd.print("3");
       delay(500);
     }
     else{ //apagado em qualquer outro caso
@@ -96,7 +96,7 @@ void loop()
     analogWrite(pinoG, 0);
     analogWrite(pinoB, 0);
     lcd.setCursor(0,0);
-    lcd.print("4");
+    lcd.print("PROXIMO");
     delay(500);
   }
 }
