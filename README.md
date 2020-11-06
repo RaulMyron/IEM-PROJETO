@@ -1,6 +1,8 @@
 # IEM-PROJETO
 *Projeto para Introdução a Engenharia Mecatrônica.*: 	`.ino`
-Colaboradores
+
+# Colaboradores:
+
 - Raul Myron Silva Amorim
 - Lucas Ramson Siefert
 - Vinicius Carvalho Lima Alcanfor
