@@ -1,6 +1,6 @@
 # IEM-PROJETO
-*Projeto para Introdução a Engenharia Mecatrônica.*: 	`.ino`
-
+*Projeto para Introdução a Engenharia Mecatrônica, realizado pelo grupo dois, em colaboração. Ano: 2020. Linguagem:* `.ino`
+ 
 # Colaboradores:
 
 - Raul Myron Silva Amorim
