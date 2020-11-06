@@ -1,9 +1,10 @@
+//Lucas Ramson
 #include <LiquidCrystal.h>
 
 float cm,duracao, alguem;
 
 //definindo pinos da placa LCD LiquidCrystal lcd(<pino RS>, <pino enable>, <pino D4>, <pino D5>, <pino D6>, <pino D7>)
-LiquidCrystal lcd(1, 2, 3, 4, 5, 6);
+LiquidCrystal lcd(A4, 2, 3, 4, 5, 6);
 
 //Sensores
 byte pinoTrans1 = 8;  //pino trig 1
@@ -15,6 +16,9 @@ byte pinoRec2 = 12; //pino echo 2
 int pinoR = 10;
 int pinoG = 9;
 int pinoB = 11;
+
+//Buzzer
+int buzzer = A5;
 
 void setup()
 {
@@ -31,6 +35,9 @@ void setup()
   pinMode(pinoTrans2, OUTPUT);
   pinMode(pinoRec1, INPUT);
   pinMode(pinoRec2, INPUT);
+  
+  //BUZZER
+  pinMode(buzzer, OUTPUT);
   
   //iniciar a porta serial
   Serial.begin(9600);
@@ -58,6 +65,8 @@ void loop()
       lcd.print("AFASTE-SE");
       lcd.setCursor(0,1);
       lcd.print("POR FAVOR");
+      Serial.print("AFASTE-SE POR FAVOR");
+      tone(buzzer,250);
       delay(500);
       
     }
@@ -69,14 +78,19 @@ void loop()
       lcd.print("AFASTE-SE");
       lcd.setCursor(0,1);
       lcd.print("POR FAVOR");
+      Serial.print("AFASTE-SE POR FAVOR");
+      tone(buzzer,200);
       delay(500);
+      
     }
     else if (cm>300){ //azul caso longe
       analogWrite(pinoR, 0);
       analogWrite(pinoG, 0);
       analogWrite(pinoB, 255);
       lcd.clear();
+      noTone(buzzer);
       delay(500);
+      
     }
     else{ //apagado em qualquer outro caso
       analogWrite(pinoR, 0); 
@@ -84,6 +98,7 @@ void loop()
       analogWrite(pinoB, 0);
       lcd.clear();
       delay(500);
+      noTone(buzzer);
     }
     //printa no serial a distancia em cm
     Serial.print(cm);
@@ -97,7 +112,9 @@ void loop()
     analogWrite(pinoB, 0);
     lcd.setCursor(0,0);
     lcd.print("PROXIMO");
+    Serial.print("PROXIMO");
     delay(500);
+    noTone(buzzer);
   }
 }
 //funcao para calcular a distancia:
@@ -130,7 +147,7 @@ float distancia1(){
   digitalWrite(pinoTrans1, LOW);
   //calcula a duracao em ms para ida e volta do pulso
   duracao = pulseIn(pinoRec1, HIGH);
-  //matematica basica xd
+  //matematica basica e.e
   float  calcDistancia = (duracao/2) * 0.0343;
   if (calcDistancia<=331){
     calcDistancia=1;
