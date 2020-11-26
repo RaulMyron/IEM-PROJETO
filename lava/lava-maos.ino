@@ -23,10 +23,6 @@ void setup()
   Serial.begin(9600);
   pinMode(motor, OUTPUT);
   lcd.begin(16, 2);
-  //lcd.setCursor(0, 0);
-  //lcd.print("Lave suas maos");
-  //lcd.setCursor(0,1);
-  //lcd.print("Aproxime-as");
 }
 
 void loop()
