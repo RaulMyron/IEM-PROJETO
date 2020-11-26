@@ -23,10 +23,10 @@ void setup()
   Serial.begin(9600);
   pinMode(motor, OUTPUT);
   lcd.begin(16, 2);
-  lcd.setCursor(0, 0);
-  lcd.print("Lave suas maos");
-  lcd.setCursor(0,1);
-  lcd.print("Antes de entrar");
+  //lcd.setCursor(0, 0);
+  //lcd.print("Lave suas maos");
+  //lcd.setCursor(0,1);
+  //lcd.print("Aproxime-as");
 }
 
 void loop()
@@ -37,13 +37,18 @@ void loop()
   Serial.print(cm);
   Serial.println("cm");
 
-  if(cm<21){
+  if(cm<=30){
  	lcd.clear();
     lcd.setCursor(0, 0);
     lcd.print("Lavando...");
     digitalWrite(motor, HIGH);
     lcd.setCursor(0,1);
     lcd.print("Use mascara! :)");
+    delay(5000);
+    lcd.clear();
+    lcd.print("Retire suas maos :)");
+    digitalWrite(motor, LOW);
+   	delay(2000);
   	}
   else{
     digitalWrite(motor, LOW);
@@ -51,7 +56,7 @@ void loop()
   	lcd.setCursor(0, 0);
   	lcd.print("Lave suas maos");
  	lcd.setCursor(0,1);
-  	lcd.print("Antes de entrar");
+  	lcd.print("Aproxime-as");
     delay(500);
   }
 }
